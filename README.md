@@ -1,6 +1,6 @@
 # Platformio XIAO ESP32S3 Modbus Slave Exploration
-This exploration project is to test the integration of esp-modbus in server(slave) configuration on the XIAO ESP32S3 connected on WIFI using the ESP-IDF example connection configuration.
-Run ESP-IDF menuconfig to set WIFI SSID and password for the ESP32 to connect to your LAN before compiling and running.
+This exploration project is to test the integration of an NTC temperature sensor on the XIAO ESP32S3.
+It reports the temperature sensing through the logging interface!
 
 # Seeed Xiao ESP32-S3 references:
 https://docs.platformio.org/en/latest//boards/espressif32/seeed_xiao_esp32s3.html
@@ -14,7 +14,8 @@ References https://community.platformio.org/t/how-to-use-jtag-built-in-debugger-
 4. Install USB CDC driver for USB JTAG/serial debug unit (interface 0).
 5. Install libusbK driver for USB JTAG/serial debug unit (interface 2).
 6. Use platformio.ini from this project and update COM ports.
-7. Upload then, run "PIO Debug without upload"
+7. Upload and debug should now work through esp-builtin interface!
 
-# Espressif Modbus TCP Example:
-https://github.com/espressif/esp-idf/tree/master/examples/protocols/modbus/tcp
+# Espressif NTC Example:
+https://docs.espressif.com/projects/esp-iot-solution/en/latest/sensors/ntc_driver.html
+https://github.com/espressif/esp-iot-solution/tree/17c072bdd192f5bdbe26976b50ae410ccdde1ff9/components/sensors/ntc_driver
