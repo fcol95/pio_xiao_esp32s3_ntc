@@ -1,6 +1,7 @@
 # Platformio XIAO ESP32S3 Modbus Slave Exploration
 This exploration project is to test the integration of an NTC temperature sensor on the XIAO ESP32S3.
 It reports the temperature sensing through the logging interface!
+NTC Sensor (3435 Beta version): https://www.aliexpress.com/item/4001345626993.html.
 
 # Seeed Xiao ESP32-S3 references:
 https://docs.platformio.org/en/latest//boards/espressif32/seeed_xiao_esp32s3.html

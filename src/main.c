@@ -11,6 +11,8 @@
 #include "esp_flash.h"
 #include "esp_log.h"
 
+#include "temp_sense.h"
+
 static const char *LOG_TAG = "main";
 
 #ifdef CONFIG_BLINK_GPIO
@@ -66,14 +68,19 @@ void app_main()
     // Set UART log level
     esp_log_level_set(LOG_TAG, ESP_LOG_INFO);
 
-    ESP_LOGI(LOG_TAG, "-- XIAO ESP32S3 Modbus Server(Slave) Exploration --");
+    ESP_LOGI(LOG_TAG, "-- XIAO ESP32S3 NTC Temperature Sense Exploration --");
 
     print_board_info();
 
     ESP_LOGI(LOG_TAG, "Starting program...");
 
     // Drivers Init
+    esp_err_t temp_sense_ret = temp_sense_init();
 
     // Tasks Init
     xTaskCreate(&blink_task, "blink_task", configMINIMAL_STACK_SIZE, NULL, 5, NULL);
+    if (temp_sense_ret == ESP_OK)
+    {
+        xTaskCreate(&temp_sense_task, "temp_sense_task", configMINIMAL_STACK_SIZE * 2, NULL, 5, NULL);
+    }
 }
